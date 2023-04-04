@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://kit.fontawesome.com/12a3e71123.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <button onclick="Foo()">sdf</button>
-    <audio id="player" controls style="visibility: visible;">
-        <source src="Songs/Lofi_1.mp3">
-      </audio>
+    <audio id="player"></audio>
+    <div id="container">
+        <div id="rgb_screen"></div>
+        <div id="gray_screen"></div>
+        <div id="dark"></div>
+        <div id="contoler">
+            <div id="play" class="button"><i class="fa-solid fa-play"></i></div>
+            <div id="random" class="button"><i class="fa-solid fa-shuffle"></i></div>
+            <div id="previous" class="button"><i class="fa-solid fa-backward"></i></div>
+            <div id="next" class="button"><i class="fa-solid fa-forward"></i></div>
+            <div id="mute" class="button"><i class="fa-solid fa-volume-xmark"></i></div>
+            <div id="volume" style="user-select: none;">
+                <div class="volume_level"></div>
+                <div class="volume_level"></div>
+                <div class="volume_level"></div>
+                <div class="volume_level"></div>
+                <div class="volume_level"></div>
+                <div class="volume_level"></div>
+                <div class="volume_level"></div>
+                <div class="volume_level"></div>
+                <div class="volume_level"></div>
+                <div class="volume_level"></div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
