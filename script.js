@@ -137,9 +137,7 @@ addEventListener("keydown", (event) => {
         play_button.innerHTML = `<i class="fa-solid fa-pause"></i>`;
         play_button.style.animationIterationCount = "0";
         player.play();
-    }
-    console.log(_volume);
-    
+    }    
 });
 play_button.addEventListener("click", function(){
     if (player.paused) {
