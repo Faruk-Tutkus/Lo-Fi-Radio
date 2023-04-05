@@ -51,6 +51,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
+    transition: 1s;
 }
 #contoler {
     position: absolute;
@@ -76,7 +77,7 @@ body {
     font-size: 4vh;
     color: #f8fff6;
     text-shadow: 0px 0px 5vh #ffebeb;
-    transition: 0.5s;
+    transition: 1s;
 }
 .button:hover {
     text-shadow: 0px 0px 1vh #ffcbcb;
@@ -89,14 +90,14 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    transition: 1s;
 }
 .volume_level {
     display: inline-block;
-    margin-right: auto;
     width: 1.9vh;
     height: 3vh;
     background-color: #ff6e6e;
-    transition: 1s;
+    transition: 0.5s;
 }
 .volume_level:nth-child(1){
     border-radius: 1vh 0vh 0vh 1vh;

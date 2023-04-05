@@ -9,15 +9,47 @@ const mute = document.getElementById("mute");
 const container = document.getElementById("container");
 var _counter = null;
 var _volume = 1;
-var _mute = false;
 window.addEventListener("load", (event) => {
-    let rand_num = Math.floor(Math.random() * 500);
-    let rand_gif = Math.floor(Math.random() * 22);
+    let rand_num = Math.floor(Math.random() * 498);
+    let rand_gif = Math.floor(Math.random() * 23);
     _counter = rand_num;
     player.src = "Songs/Lofi_" + _counter + ".mp3";
     container.style.backgroundImage = `url("Gif/Gif_${rand_gif}.gif")`;
 });
+var timeout;
+addEventListener("mousemove", function(){
+        volume_parent.style.filter = "opacity(100%)";
+        play_button.style.filter = "opacity(100%)";
+        random_button.style.filter = "opacity(100%)";
+        previous_button.style.filter = "opacity(100%)";
+        next_button.style.filter = "opacity(100%)";
+        mute.style.filter = "opacity(100%)";
+    clearTimeout(timeout);
+    timeout = setTimeout(function(){
+        volume_parent.style.filter = "opacity(0%)";
+        play_button.style.filter = "opacity(0%)";
+        random_button.style.filter = "opacity(0%)";
+        previous_button.style.filter = "opacity(0%)";
+        next_button.style.filter = "opacity(0%)";
+        mute.style.filter = "opacity(0%)";
+    }, 5000);
+});
 addEventListener("keydown", (event) => {
+    volume_parent.style.filter = "opacity(100%)";
+    play_button.style.filter = "opacity(100%)";
+    random_button.style.filter = "opacity(100%)";
+    previous_button.style.filter = "opacity(100%)";
+    next_button.style.filter = "opacity(100%)";
+    mute.style.filter = "opacity(100%)";
+    clearTimeout(timeout);
+    timeout = setTimeout(function(){
+        volume_parent.style.filter = "opacity(0%)";
+        play_button.style.filter = "opacity(0%)";
+        random_button.style.filter = "opacity(0%)";
+        previous_button.style.filter = "opacity(0%)";
+        next_button.style.filter = "opacity(0%)";
+        mute.style.filter = "opacity(0%)";
+    }, 5000);
     if (event.keyCode === 32) {
         if (player.paused) {
             play_button.innerHTML = `<i class="fa-solid fa-pause"></i>`;
@@ -30,32 +62,30 @@ addEventListener("keydown", (event) => {
             player.pause();
         }
     }
-    if (event.keyCode === 109 || event.keyCode === 77) {
-        if (!_mute) {
-            player.volume = 0.0;
+    if (event.keyCode === 77) {
+        if (player.muted == false) {
+            player.muted = true;
             for (let index = 0; index < volume.length; index++) {
-                volume.item(index).style.backgroundColor = "#ba5b5b";
+                volume.item(index).style.backgroundColor = "#ff6e6e64";
             }
-            _mute = true;
         }
-        else if (_mute) {
-            player.volume = _volume;
-            for (let i = 0; i < (_volume * 10); i++) {
+        else {
+            player.muted = false;
+            for (let i = 0; i <= (_volume * 10) - 1; i++) {
                 volume.item(i).style.backgroundColor = "#ff6e6e";
             }
-            _mute = false;
         }
     }
     if (event.keyCode === 37) {
         if (_counter > 0 && !player.paused) {
             _counter--;
-            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 23)}.gif")`;
             player.src = "Songs/Lofi_" + _counter + ".mp3";
             player.play();
         }
         else if (_counter == 0 && !player.paused) {
             _counter = 497;
-            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 23)}.gif")`;
             player.src = "Songs/Lofi_" + _counter + ".mp3";
             player.play();
         }
@@ -63,17 +93,53 @@ addEventListener("keydown", (event) => {
     if (event.keyCode === 39) {
         if (_counter < 497 && !player.paused) {
             _counter++;
-            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 23)}.gif")`;
             player.src = "Songs/Lofi_" + _counter + ".mp3";
             player.play();
         }
         else if (_counter == 497 && !player.paused) {
             _counter = 0;
-            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 23)}.gif")`;
             player.src = "Songs/Lofi_" + _counter + ".mp3";
             player.play();
         }
     }
+    if (event.keyCode === 38) {
+        player.muted = false;
+        if (_volume < 1.0) {
+            _volume += 0.1;
+            player.volume = _volume.toPrecision(1);
+        }
+        for (let i = 0; i < _volume.toPrecision(1) * 10; i++) {
+            volume.item(i).style.backgroundColor = "#ff6e6e";
+        }
+        for (let i = _volume.toPrecision(1) * 10; i < volume.length; i++) {
+            volume.item(i).style.backgroundColor = "#ff6e6e64";
+        } 
+    }
+    if (event.keyCode === 40) {
+        if (_volume >= 0.1) {
+            _volume -= 0.1;
+            player.muted = false;
+            player.volume = _volume.toPrecision(1);
+            for (let i = 0; i < _volume.toPrecision(1) * 10; i++) {
+                volume.item(i).style.backgroundColor = "#ff6e6e";
+            }
+            for (let i = _volume.toPrecision(1) * 10; i < volume.length; i++) {
+                volume.item(i).style.backgroundColor = "#ff6e6e64";
+            }   
+        }
+    }
+    if (event.keyCode === 82) {
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 23)}.gif")`;
+        _counter = Math.floor(Math.random() * 498);
+        player.src = "Songs/Lofi_" + _counter + ".mp3";
+        play_button.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+        play_button.style.animationIterationCount = "0";
+        player.play();
+    }
+    console.log(_volume);
+    
 });
 play_button.addEventListener("click", function(){
     if (player.paused) {
@@ -88,7 +154,7 @@ play_button.addEventListener("click", function(){
     }
 });
 previous_button.addEventListener("click", function() {
-    container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
+    container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 23)}.gif")`;
     if (_counter > 0 && !player.paused) {
         _counter--;
         player.src = "Songs/Lofi_" + _counter + ".mp3";
@@ -103,42 +169,63 @@ previous_button.addEventListener("click", function() {
 next_button.addEventListener("click", function() {
     if (_counter < 497 && !player.paused) {
         _counter++;
-        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 23)}.gif")`;
         player.src = "Songs/Lofi_" + _counter + ".mp3";
         player.play();
     }
     else if (_counter == 497 && !player.paused) {
         _counter = 0;
-        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 23)}.gif")`;
         player.src = "Songs/Lofi_" + _counter + ".mp3";
         player.play();
     }
 });
 for (let index = 0; index < volume.length; index++) {
     volume.item(index).addEventListener("mouseup", function() {
-        _volume = (index + 1) / 10
+        player.muted = false;
+        _volume = (index + 1) / 10;
         player.volume = _volume;
         for (let i = 0; i <= index; i++) {
             volume.item(i).style.backgroundColor = "#ff6e6e";
         }
         for (let i = index + 1; i < volume.length; i++) {
-            volume.item(i).style.backgroundColor = "#ba5b5b";
+            volume.item(i).style.backgroundColor = "#ff6e6e64";
         }
     });
 }
 mute.addEventListener("click", function(){
-    if (!_mute) {
-        player.volume = 0.0;
+    if (player.muted == false) {
+        player.muted = true;
         for (let index = 0; index < volume.length; index++) {
-            volume.item(index).style.backgroundColor = "#ba5b5b";
+            volume.item(index).style.backgroundColor = "#ff6e6e64";
         }
-        _mute = true;
     }
-    else if (_mute) {
-        player.volume = _volume;
-        for (let i = 0; i < (_volume * 10); i++) {
+    else {
+        player.muted = false;
+        for (let i = 0; i < (_volume * 10) - 1; i++) {
             volume.item(i).style.backgroundColor = "#ff6e6e";
         }
-        _mute = false;
+    }
+});
+random_button.addEventListener("click", function() {
+    container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 23)}.gif")`;
+    _counter = Math.floor(Math.random() * 498);
+    player.src = "Songs/Lofi_" + _counter + ".mp3";
+    play_button.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+    play_button.style.animationIterationCount = "0";
+    player.play();
+});
+player.addEventListener("ended", function() {
+    if (_counter < 497) {
+        _counter++;
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 23)}.gif")`;
+        player.src = "Songs/Lofi_" + _counter + ".mp3";
+        player.play();
+    }
+    else if (_counter == 497) {
+        _counter = 0;
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 23)}.gif")`;
+        player.src = "Songs/Lofi_" + _counter + ".mp3";
+        player.play();
     }
 });
