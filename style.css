@@ -3,7 +3,7 @@
 }
 body {
     background-color: #000;
-    transition: 2s;
+    transition: 3s;
 }
 #container {
     width: 100%;
@@ -11,7 +11,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: 2s;
+    transition: 3s;
 }
 @keyframes moveDownAnimation {
     100% {
