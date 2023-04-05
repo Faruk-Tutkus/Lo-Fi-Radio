@@ -6,13 +6,16 @@ const next_button = document.getElementById("next");
 const volume = document.getElementsByClassName("volume_level");
 const volume_parent = document.getElementById("volume");
 const mute = document.getElementById("mute");
+const container = document.getElementById("container");
 var _counter = null;
 var _volume = 1;
 var _mute = false;
 window.addEventListener("load", (event) => {
     let rand_num = Math.floor(Math.random() * 500);
+    let rand_gif = Math.floor(Math.random() * 22);
     _counter = rand_num;
-    player.src = "Songs/Lofi_" + rand_num + ".mp3";
+    player.src = "Songs/Lofi_" + _counter + ".mp3";
+    container.style.backgroundImage = `url("Gif/Gif_${rand_gif}.gif")`;
 });
 addEventListener("keydown", (event) => {
     if (event.keyCode === 32) {
@@ -46,13 +49,27 @@ addEventListener("keydown", (event) => {
     if (event.keyCode === 37) {
         if (_counter > 0 && !player.paused) {
             _counter--;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
+            player.src = "Songs/Lofi_" + _counter + ".mp3";
+            player.play();
+        }
+        else if (_counter == 0 && !player.paused) {
+            _counter = 497;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
             player.src = "Songs/Lofi_" + _counter + ".mp3";
             player.play();
         }
     }
     if (event.keyCode === 39) {
-        if (_counter < 499 && !player.paused) {
+        if (_counter < 497 && !player.paused) {
             _counter++;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
+            player.src = "Songs/Lofi_" + _counter + ".mp3";
+            player.play();
+        }
+        else if (_counter == 497 && !player.paused) {
+            _counter = 0;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
             player.src = "Songs/Lofi_" + _counter + ".mp3";
             player.play();
         }
@@ -71,15 +88,28 @@ play_button.addEventListener("click", function(){
     }
 });
 previous_button.addEventListener("click", function() {
+    container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
     if (_counter > 0 && !player.paused) {
         _counter--;
         player.src = "Songs/Lofi_" + _counter + ".mp3";
         player.play();
     }
+    else if (_counter == 0 && !player.paused) {
+        _counter = 497;
+        player.src = "Songs/Lofi_" + _counter + ".mp3";
+        player.play();
+    }
 });
 next_button.addEventListener("click", function() {
-    if (_counter < 499 && !player.paused) {
+    if (_counter < 497 && !player.paused) {
         _counter++;
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
+        player.src = "Songs/Lofi_" + _counter + ".mp3";
+        player.play();
+    }
+    else if (_counter == 497 && !player.paused) {
+        _counter = 0;
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 22)}.gif")`;
         player.src = "Songs/Lofi_" + _counter + ".mp3";
         player.play();
     }
