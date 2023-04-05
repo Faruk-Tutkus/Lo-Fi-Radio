@@ -79,13 +79,13 @@ addEventListener("keydown", (event) => {
     if (event.keyCode === 37) {
         if (_counter > 0 && !player.paused) {
             _counter--;
-            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 24)}.gif")`;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 25)}.gif")`;
             player.src = "Songs/Lofi_" + _counter + ".mp3";
             player.play();
         }
         else if (_counter == 0 && !player.paused) {
             _counter = 497;
-            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 24)}.gif")`;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 25)}.gif")`;
             player.src = "Songs/Lofi_" + _counter + ".mp3";
             player.play();
         }
@@ -93,13 +93,13 @@ addEventListener("keydown", (event) => {
     if (event.keyCode === 39) {
         if (_counter < 497 && !player.paused) {
             _counter++;
-            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 24)}.gif")`;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 25)}.gif")`;
             player.src = "Songs/Lofi_" + _counter + ".mp3";
             player.play();
         }
         else if (_counter == 497 && !player.paused) {
             _counter = 0;
-            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 24)}.gif")`;
+            container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 25)}.gif")`;
             player.src = "Songs/Lofi_" + _counter + ".mp3";
             player.play();
         }
@@ -131,7 +131,7 @@ addEventListener("keydown", (event) => {
         }
     }
     if (event.keyCode === 82) {
-        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 24)}.gif")`;
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 25)}.gif")`;
         _counter = Math.floor(Math.random() * 498);
         player.src = "Songs/Lofi_" + _counter + ".mp3";
         play_button.innerHTML = `<i class="fa-solid fa-pause"></i>`;
@@ -167,13 +167,13 @@ previous_button.addEventListener("click", function() {
 next_button.addEventListener("click", function() {
     if (_counter < 497 && !player.paused) {
         _counter++;
-        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 24)}.gif")`;
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 25)}.gif")`;
         player.src = "Songs/Lofi_" + _counter + ".mp3";
         player.play();
     }
     else if (_counter == 497 && !player.paused) {
         _counter = 0;
-        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 24)}.gif")`;
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 25)}.gif")`;
         player.src = "Songs/Lofi_" + _counter + ".mp3";
         player.play();
     }
@@ -206,7 +206,7 @@ mute.addEventListener("click", function(){
     }
 });
 random_button.addEventListener("click", function() {
-    container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 24)}.gif")`;
+    container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 25)}.gif")`;
     _counter = Math.floor(Math.random() * 498);
     player.src = "Songs/Lofi_" + _counter + ".mp3";
     play_button.innerHTML = `<i class="fa-solid fa-pause"></i>`;
@@ -216,13 +216,13 @@ random_button.addEventListener("click", function() {
 player.addEventListener("ended", function() {
     if (_counter < 497) {
         _counter++;
-        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 24)}.gif")`;
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 25)}.gif")`;
         player.src = "Songs/Lofi_" + _counter + ".mp3";
         player.play();
     }
     else if (_counter == 497) {
         _counter = 0;
-        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 24)}.gif")`;
+        container.style.backgroundImage = `url("Gif/gif_${Math.floor(Math.random() * 25)}.gif")`;
         player.src = "Songs/Lofi_" + _counter + ".mp3";
         player.play();
     }
