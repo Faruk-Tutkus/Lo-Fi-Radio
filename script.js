@@ -7,8 +7,17 @@ const volume = document.getElementsByClassName("volume_level");
 const volume_parent = document.getElementById("volume");
 const mute = document.getElementById("mute");
 const container = document.getElementById("container");
+const contoler = document.getElementById("contoler");
 var _counter = null;
 var _volume = 1;
+controler.addEventListener("mouseover", function() {
+    volume_parent.style.filter = "opacity(100%)";
+    play_button.style.filter = "opacity(100%)";
+    random_button.style.filter = "opacity(100%)";
+    previous_button.style.filter = "opacity(100%)";
+    next_button.style.filter = "opacity(100%)";
+    mute.style.filter = "opacity(100%)";
+};
 window.addEventListener("load", (event) => {
     let rand_num = Math.floor(Math.random() * 498);
     let rand_gif = Math.floor(Math.random() * 23);
