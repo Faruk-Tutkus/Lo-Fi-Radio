@@ -7,10 +7,10 @@ const volume = document.getElementsByClassName("volume_level");
 const volume_parent = document.getElementById("volume");
 const mute = document.getElementById("mute");
 const container = document.getElementById("container");
-const contoler = document.getElementById("contoler");
+const controller = document.getElementById("controller");
 var _counter = null;
 var _volume = 1;
-controler.addEventListener("mouseover", function() {
+controller.addEventListener("mouseover", function() {
     volume_parent.style.filter = "opacity(100%)";
     play_button.style.filter = "opacity(100%)";
     random_button.style.filter = "opacity(100%)";
