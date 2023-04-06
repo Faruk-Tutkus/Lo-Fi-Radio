@@ -41,15 +41,6 @@ addEventListener("keydown", (event) => {
     previous_button.style.filter = "opacity(100%)";
     next_button.style.filter = "opacity(100%)";
     mute.style.filter = "opacity(100%)";
-    clearTimeout(timeout);
-    timeout = setTimeout(function(){
-        volume_parent.style.filter = "opacity(0%)";
-        play_button.style.filter = "opacity(0%)";
-        random_button.style.filter = "opacity(0%)";
-        previous_button.style.filter = "opacity(0%)";
-        next_button.style.filter = "opacity(0%)";
-        mute.style.filter = "opacity(0%)";
-    }, 5000);
     if (event.keyCode === 32) {
         if (player.paused) {
             play_button.innerHTML = `<i class="fa-solid fa-pause"></i>`;
