@@ -54,7 +54,7 @@ body {
     z-index: 1;
     transition: 1s;
 }
-#contoler {
+#controller {
     position: absolute;
     bottom: 5vh;
     left: 5vh;
