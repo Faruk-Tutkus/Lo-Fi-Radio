@@ -17,7 +17,7 @@ controler.addEventListener("mouseover", function() {
     previous_button.style.filter = "opacity(100%)";
     next_button.style.filter = "opacity(100%)";
     mute.style.filter = "opacity(100%)";
-};
+)};
 window.addEventListener("load", (event) => {
     let rand_num = Math.floor(Math.random() * 498);
     let rand_gif = Math.floor(Math.random() * 23);
