@@ -191,7 +191,7 @@ mute.addEventListener("click", function(){
     }
     else {
         player.muted = false;
-        for (let i = 0; i < (_volume * 10) - 1; i++) {
+        for (let i = 0; i <= (_volume * 10) - 1; i++) {
             volume.item(i).style.backgroundColor = "#ff6e6e";
         }
     }
