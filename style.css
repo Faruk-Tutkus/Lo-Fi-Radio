@@ -56,8 +56,8 @@ body {
 }
 #controller {
     position: absolute;
-    bottom: 1.5%;
-    left: 1.5%;
+    bottom: 15px;
+    left: 15px;
     width: 55vh;
     height: 10vh;
     z-index: 20;
