@@ -15,7 +15,6 @@ Lo-Fi Radio is a simple and relaxing web application that streams lo-fi music. D
 
 - **HTML/CSS/JavaScript** - Front-end for user interface and functionality.
 - **Netlify** - Platform for hosting and deploying the web app.
-- **Music API** - Streams lo-fi music from an external source.
 
 ## Getting Started
 
@@ -23,7 +22,6 @@ Lo-Fi Radio is a simple and relaxing web application that streams lo-fi music. D
 
 To run this project locally, you need to have the following installed:
 
-- [Node.js](https://nodejs.org/)
 - [Netlify CLI](https://docs.netlify.com/cli/get-started/)
 
 ### Installation
